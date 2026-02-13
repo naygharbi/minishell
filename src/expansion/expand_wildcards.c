@@ -59,7 +59,7 @@ static char	**get_matching_filenames(char *pattern)
 	char			**matches;
 	int				count;
 
-	matches = malloc(sizeof(char *) * 1);
+	matches = ft_calloc(1, sizeof(char *));
 	if (!matches)
 		handle_error(MALLOC);
 	count = 0;

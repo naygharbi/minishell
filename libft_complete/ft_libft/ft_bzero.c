@@ -22,7 +22,7 @@ void	*ft_bzero(void *s, size_t n)
 	str = (char *)s;
 	b = 0;
 	a = '\0';
-	while (n > b && str[b] != '\n')
+	while (n > b)
 	{
 		str[b] = a;
 		b++;

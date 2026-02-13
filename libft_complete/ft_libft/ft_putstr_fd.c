@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:59:26 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/02/04 12:49:23 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/02/13 10:49:28 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_putstr_fd(char *s, int fd)
 {
 	int	a;
 
+	if (!s)
+		return (0);
 	a = 0;
 	while (s[a] != '\0')
 	{

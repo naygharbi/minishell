@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:41:23 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/02/04 12:49:30 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:00:58 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ int	ft_putpointer_fd(unsigned long p, int fd)
 	return (count);
 }
 
+/* Function to print a single character to a given file descriptor */
+static int	ft_putstr_safe(char *s, int fd)
+{
+	if (!s)
+		return (ft_putstr_fd("(null)", fd));
+	return (ft_putstr_fd(s, fd));
+}
+
 /* Helper function to verify format specifiers and call appropriate printing
 functions */
 int	ft_verify(char spec, va_list args, int fd)
@@ -69,7 +77,7 @@ int	ft_verify(char spec, va_list args, int fd)
 	if (spec == 'c')
 		count = ft_putchar_fd(va_arg(args, int), fd);
 	else if (spec == 's')
-		count = ft_putstr_fd(va_arg(args, char *), fd);
+		count = ft_putstr_safe(va_arg(args, char *), fd);
 	else if (spec == 'd' || spec == 'i')
 		count = ft_putbase_fd(va_arg(args, int), "0123456789", 10, fd);
 	else if (spec == 'u')
